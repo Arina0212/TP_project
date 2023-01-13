@@ -11,7 +11,7 @@ def about(request):
     context = {
         'posts': result,
         'menu': menu,
-        'title': 'Последние вакансии',
+        'title': 'Главная страница',
         'cat_selected': 0,
     }
     return render(request, 'about.html',  context=context)
