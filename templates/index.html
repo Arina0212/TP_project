@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+     <form  method="post">{% csrf_token %}
+
+        <input type="date" name="decem_day" value="dec_day" />
+        <input type="submit" value="Выбрать">
+    </form>
+{% endblock %}

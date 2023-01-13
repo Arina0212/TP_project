@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Последние вакансии{% endblock %}
+
+{% block content %}
+    <form  method="post">
+        {% csrf_token %}
+        <label>Выберите дату:</label>
+        <input type="date" name="decem_day" value={{ decem_day }} >
+        <input type="submit" value="Выбрать">
+    </form>
+<p></p>
+    <ul class="list-articles">
+        {% for p in posts %}
+            <li>
+                <div class="article-panel">
+                    <p class="last">Дата: {{p.published_at}}</p>
+                </div>
+                <div class="card">
+                    <h2>Вакансия:</h2>
+                    <h3> {{p.name}}</h3>
+                    <div class="salary">
+                        <p class="heading-color">Оклад:</p>
+                        <div class="value">
+                            <p class="salary-value">{{p.salary}}</p>
+                            <p class="rub"> {{p.salary_currency}}</p>
+                        </div>
+                    </div>
+                    <div class="addition">
+                        <p class="company">Город: </p>
+                        <div class="area">
+                            <p>{{ p.area_name }}</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+	    {% endfor %}
+    </ul>
+{% endblock %}
