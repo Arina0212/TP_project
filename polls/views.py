@@ -7,14 +7,7 @@ from django.shortcuts import render
 menu = ["UX/UI дизайнер"]
 
 def about(request):
-    result = Mein.objects.all().filter(title="UX/UI дизайнер")
-    context = {
-        'posts': result,
-        'menu': menu,
-        'title': 'Главная страница',
-        'cat_selected': 0,
-    }
-    return render(request, 'about.html',  context=context)
+    return render(request, 'about.html',   {'menu': menu, 'title': 'UX/UI дизайнер'})
 
 def demand(request):
     return render(request, 'demand.html', {'menu': menu, 'title': 'Восстребованность профессии'})
